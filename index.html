@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bod {
+            background-color: grey;
+        }
+        #form {
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            position: relative;
+            width: 400px;
+            perspective: 28px;
+            background-color: silver;
+            border-radius: 5px;
+        }
+        #roun{
+            border-radius: 10px;
+        }
+        legend {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        fieldset{
+            border: 0px;
+        }
+        #ustext{
+            font-size: 15px;
+            color: red
+        }
+        #pstext{
+            font-size: 15px;
+            color: red
+        }
+    </style>
+</head>
+<body id="bod">
+    <form id="form">
+        <fieldset>
+            <Legend>Sign in</Legend>
+            <label for="user">Username(5-12 characters):</label>
+            <div id="ustext"></div>
+            <input type="text" required id="user" name="user"  placeholder="xXBelta89XX" pattern="^\S{5,12}" maxlength="12" size="49" onblur="checkUsername()"><br><br>
+            <label for="pass">Password(9+ characters):</label>
+            <div id="pstext"></div>
+            <input type="password" required id="pass" name="pass" placeholder="6920048jakeis" pattern="^\S{9,}" size="49" onblur="checkPass()"><br><br>
+            <input type="submit" value="submit" id="roun">
+            <input type="reset" value="reset" id="roun">
+        </fieldset>
+    </form>
+    <script>
+        function checkUsername(){
+            const umsg = document.getElementById('ustext')
+            const val = document.getElementById('user').value
+            let length = val.length
+            const box = document.getElementById('user')
+            console.log(length)
+            if (length < 5 || length > 12){
+                window.alert(val + " is not a valid username")
+                box.style.borderColor = 'red'
+                umsg.textContent = 'Please edit username'
+            }else{
+                umsg.textContent = ''
+                box.style.borderColor = 'green'
+            }
+        }
+        function checkPass(){
+            const pmsg = document.getElementById('pstext')
+            const pal = document.getElementById('pass').value
+            let tength = pal.length
+            const rox = document.getElementById('pass')
+            console.log(tength)
+            if (tength <9){
+                window.alert(pal + " is not a valid username")
+                rox.style.borderColor = 'red'
+                pmsg.textContent = 'Please edit password'
+            }else{
+                pmsg.textContent = ''
+                rox.style.borderColor = 'green'
+            }
+        }
+    </script>
+</body>
+</html>
